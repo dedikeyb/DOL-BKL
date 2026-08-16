@@ -23,7 +23,8 @@
 #define MyAppPublisher "Digiethnica"
 #define MyAppBundleName "DOL BENGKULU.vst3"
 ; Path relatif terhadap file .iss ini (folder installer\)
-#define Vst3Dir "..\Builds\DOL_BKL\DOL_BKL_artefacts\VST3"
+; Windows (Visual Studio) menaruh artefak di subdirektori konfigurasi: Release
+#define Vst3Dir "..\Builds\DOL_BKL\DOL_BKL_artefacts\Release\VST3"
 
 [Setup]
 AppId={{E7B1A2D0-4C3B-4A9F-9E2D-7B6C5A4D3E2F}

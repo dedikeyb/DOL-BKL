@@ -96,7 +96,8 @@ Write-Host "==> Build VST3 ($Config, -j $Jobs)... (bisa beberapa menit)" -Foregr
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 # ---------- 4. Verifikasi bundle ----------
-$Bundle = Join-Path $Root "Builds\DOL_BKL\DOL_BKL_artefacts\VST3\DOL BENGKULU.vst3"
+# Visual Studio (multi-config) menaruh artefak di subdirektori konfigurasi
+$Bundle = Join-Path $Root "Builds\DOL_BKL\DOL_BKL_artefacts\$Config\VST3\DOL BENGKULU.vst3"
 if (-not (Test-Path $Bundle)) {
     Write-Host "Bundle VST3 tidak ditemukan: $Bundle" -ForegroundColor Red
     exit 1

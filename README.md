@@ -63,7 +63,7 @@ cmake -S . -B Builds\DOL_BKL -DDOL_JUCE_ROOT=C:\path\to\JUCE -DDOL_COPY_AFTER_BU
 cmake --build Builds\DOL_BKL --config Release --target DOL_BKL_VST3
 ```
 
-Hasil: `Builds\DOL_BKL\DOL_BKL_artefacts\VST3\DOL BENGKULU.vst3`
+Hasil (Windows): `Builds\DOL_BKL\DOL_BKL_artefacts\Release\VST3\DOL BENGKULU.vst3`
 (salin manual ke `C:\Program Files\Common Files\VST3\` untuk uji coba tanpa installer).
 
 > `DOL_COPY_AFTER_BUILD=OFF` dimatikan saat packaging agar build tidak

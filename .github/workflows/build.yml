@@ -57,7 +57,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: DOL-BENGKULU-Windows-vst3
-          path: Builds/DOL_BKL/DOL_BKL_artefacts/VST3/DOL BENGKULU.vst3
+          path: Builds/DOL_BKL/DOL_BKL_artefacts/Release/VST3/DOL BENGKULU.vst3
 
       - name: Upload installer EXE
         uses: actions/upload-artifact@v4
