@@ -1,0 +1,14 @@
+# Build artifacts
+Builds/
+dist/
+DOL_BKL_artefacts/
+
+# Freebuff metadata
+.freebuff/
+
+# File kerja sementara (analisis gambar, dll)
+.ui_tmp/
+
+# macOS junk
+.DS_Store
+._*

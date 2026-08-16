@@ -1,0 +1,94 @@
+# Build DOL BENGKULU (VST3) di cloud — tanpa perlu PC Windows.
+#
+# Cara pakai:
+#   1. Buat repo gratis di github.com (misal: DOL-BKL)
+#   2. Push folder proyek ini ke repo tersebut
+#   3. Buka tab "Actions" di GitHub -> pilih workflow ini -> "Run workflow"
+#   4. Setelah selesai, download artefak:
+#        - DOL-BENGKULU-Windows-vst3    (folder DOL BENGKULU.vst3, siap copy-paste)
+#        - DOL-BENGKULU-Windows-installer (installer EXE, opsional)
+#        - DOL-BENGKULU-macOS-vst3      (versi macOS, bonus)
+#
+# JUCE 9.0.1 diunduh otomatis di cloud (tidak perlu disertakan di repo).
+
+name: Build DOL BENGKULU (VST3)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+    tags: ["v*"]
+
+jobs:
+  windows:
+    name: Windows - VST3 + installer EXE
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download JUCE 9.0.1
+        shell: pwsh
+        run: |
+          $juce = "$env:RUNNER_TEMP\JUCE"
+          if (!(Test-Path "$juce\CMakeLists.txt")) {
+            Invoke-WebRequest -Uri "https://github.com/juce-framework/JUCE/archive/refs/tags/9.0.1.zip" -OutFile "$env:RUNNER_TEMP\juce.zip" -UseBasicParsing
+            Expand-Archive "$env:RUNNER_TEMP\juce.zip" "$env:RUNNER_TEMP\juce-x"
+            $src = Get-ChildItem "$env:RUNNER_TEMP\juce-x" -Directory | Select-Object -First 1
+            Move-Item $src.FullName $juce
+          }
+          Write-Host "JUCE SDK : $juce"
+
+      - name: Configure CMake
+        shell: bash
+        run: cmake -S . -B Builds/DOL_BKL -DDOL_JUCE_ROOT="$RUNNER_TEMP/JUCE" -DDOL_COPY_AFTER_BUILD=OFF
+
+      - name: Build VST3 (Release)
+        shell: bash
+        run: cmake --build Builds/DOL_BKL --config Release --target DOL_BKL_VST3 --parallel 2
+
+      - name: Install Inno Setup (untuk installer EXE)
+        run: choco install innosetup --yes --no-progress
+
+      - name: Build installer EXE
+        shell: cmd
+        run: '"C:\Program Files (x86)\Inno Setup 6\ISCC.exe" installer\DOL_BKL_installer.iss'
+
+      - name: Upload VST3 Windows
+        uses: actions/upload-artifact@v4
+        with:
+          name: DOL-BENGKULU-Windows-vst3
+          path: Builds/DOL_BKL/DOL_BKL_artefacts/VST3/DOL BENGKULU.vst3
+
+      - name: Upload installer EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: DOL-BENGKULU-Windows-installer
+          path: dist/DOL_BKL-0.1.0-win64.exe
+
+  macos:
+    name: macOS - VST3 (bonus)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download JUCE 9.0.1
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/juce-x"
+          curl -L -o "$RUNNER_TEMP/juce.zip" "https://github.com/juce-framework/JUCE/archive/refs/tags/9.0.1.zip"
+          unzip -q "$RUNNER_TEMP/juce.zip" -d "$RUNNER_TEMP/juce-x"
+          mv "$RUNNER_TEMP"/juce-x/JUCE-9.0.1 "$RUNNER_TEMP/JUCE"
+
+      - name: Configure CMake
+        shell: bash
+        run: cmake -S . -B Builds/DOL_BKL -DDOL_JUCE_ROOT="$RUNNER_TEMP/JUCE" -DDOL_COPY_AFTER_BUILD=OFF
+
+      - name: Build VST3 (Release)
+        shell: bash
+        run: cmake --build Builds/DOL_BKL --config Release --target DOL_BKL_VST3 --parallel 2
+
+      - name: Upload VST3 macOS
+        uses: actions/upload-artifact@v4
+        with:
+          name: DOL-BENGKULU-macOS-vst3
+          path: Builds/DOL_BKL/DOL_BKL_artefacts/VST3/DOL BENGKULU.vst3

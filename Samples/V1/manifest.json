@@ -1,0 +1,440 @@
+{
+  "version": "1.0",
+  "sample_rate": 48000,
+  "bit_depth": 24,
+  "channels": 2,
+  "head": {
+    "velocity_layers": 9,
+    "round_robin": 5,
+    "layers": {
+      "V1": [
+        {
+          "file": "Head/V01_RR01.wav",
+          "source": "V1_HIT01.wav",
+          "source_hit": 1,
+          "peak_dbfs": -26.73,
+          "rms_dbfs": -43.43,
+          "duration_sec": 0.9613
+        },
+        {
+          "file": "Head/V01_RR02.wav",
+          "source": "V1_HIT03.wav",
+          "source_hit": 3,
+          "peak_dbfs": -29.59,
+          "rms_dbfs": -44.43,
+          "duration_sec": 0.9827
+        },
+        {
+          "file": "Head/V01_RR03.wav",
+          "source": "V1_HIT07.wav",
+          "source_hit": 7,
+          "peak_dbfs": -26.85,
+          "rms_dbfs": -43.29,
+          "duration_sec": 0.9933
+        },
+        {
+          "file": "Head/V01_RR04.wav",
+          "source": "V1_HIT02.wav",
+          "source_hit": 2,
+          "peak_dbfs": -28.74,
+          "rms_dbfs": -42.72,
+          "duration_sec": 0.972
+        },
+        {
+          "file": "Head/V01_RR05.wav",
+          "source": "V1_HIT05.wav",
+          "source_hit": 5,
+          "peak_dbfs": -28.53,
+          "rms_dbfs": -43.52,
+          "duration_sec": 0.9933
+        }
+      ],
+      "V2": [
+        {
+          "file": "Head/V02_RR01.wav",
+          "source": "V2_HIT03.wav",
+          "source_hit": 3,
+          "peak_dbfs": -11.86,
+          "rms_dbfs": -28.33,
+          "duration_sec": 0.9827
+        },
+        {
+          "file": "Head/V02_RR02.wav",
+          "source": "V2_HIT05.wav",
+          "source_hit": 5,
+          "peak_dbfs": -14.46,
+          "rms_dbfs": -29.61,
+          "duration_sec": 0.972
+        },
+        {
+          "file": "Head/V02_RR03.wav",
+          "source": "V2_HIT01.wav",
+          "source_hit": 1,
+          "peak_dbfs": -17.14,
+          "rms_dbfs": -30.99,
+          "duration_sec": 0.9827
+        },
+        {
+          "file": "Head/V02_RR04.wav",
+          "source": "V2_HIT06.wav",
+          "source_hit": 6,
+          "peak_dbfs": -13.39,
+          "rms_dbfs": -27.56,
+          "duration_sec": 0.9827
+        },
+        {
+          "file": "Head/V02_RR05.wav",
+          "source": "V2_HIT02.wav",
+          "source_hit": 2,
+          "peak_dbfs": -13.55,
+          "rms_dbfs": -28.43,
+          "duration_sec": 0.9827
+        }
+      ],
+      "V3": [
+        {
+          "file": "Head/V03_RR01.wav",
+          "source": "V3_HIT06.wav",
+          "source_hit": 6,
+          "peak_dbfs": -7.88,
+          "rms_dbfs": -24.94,
+          "duration_sec": 0.972
+        },
+        {
+          "file": "Head/V03_RR02.wav",
+          "source": "V3_HIT07.wav",
+          "source_hit": 7,
+          "peak_dbfs": -7.82,
+          "rms_dbfs": -23.93,
+          "duration_sec": 0.972
+        },
+        {
+          "file": "Head/V03_RR03.wav",
+          "source": "V3_HIT02.wav",
+          "source_hit": 2,
+          "peak_dbfs": -8.86,
+          "rms_dbfs": -23.62,
+          "duration_sec": 0.972
+        },
+        {
+          "file": "Head/V03_RR04.wav",
+          "source": "V3_HIT05.wav",
+          "source_hit": 5,
+          "peak_dbfs": -8.7,
+          "rms_dbfs": -23.75,
+          "duration_sec": 1.0253
+        },
+        {
+          "file": "Head/V03_RR05.wav",
+          "source": "V3_HIT04.wav",
+          "source_hit": 4,
+          "peak_dbfs": -7.98,
+          "rms_dbfs": -23.8,
+          "duration_sec": 0.94
+        }
+      ],
+      "V4": [
+        {
+          "file": "Head/V04_RR01.wav",
+          "source": "V4_HIT03.wav",
+          "source_hit": 3,
+          "peak_dbfs": -7.96,
+          "rms_dbfs": -22.52,
+          "duration_sec": 0.972
+        },
+        {
+          "file": "Head/V04_RR02.wav",
+          "source": "V4_HIT07.wav",
+          "source_hit": 7,
+          "peak_dbfs": -6.63,
+          "rms_dbfs": -22.25,
+          "duration_sec": 0.9293
+        },
+        {
+          "file": "Head/V04_RR03.wav",
+          "source": "V4_HIT02.wav",
+          "source_hit": 2,
+          "peak_dbfs": -7.95,
+          "rms_dbfs": -22.03,
+          "duration_sec": 0.9827
+        },
+        {
+          "file": "Head/V04_RR04.wav",
+          "source": "V4_HIT05.wav",
+          "source_hit": 5,
+          "peak_dbfs": -7.41,
+          "rms_dbfs": -21.33,
+          "duration_sec": 0.9827
+        },
+        {
+          "file": "Head/V04_RR05.wav",
+          "source": "V4_HIT04.wav",
+          "source_hit": 4,
+          "peak_dbfs": -7.75,
+          "rms_dbfs": -22.39,
+          "duration_sec": 0.9827
+        }
+      ],
+      "V5": [
+        {
+          "file": "Head/V05_RR01.wav",
+          "source": "V5_HIT01.wav",
+          "source_hit": 1,
+          "peak_dbfs": -6.06,
+          "rms_dbfs": -21.22,
+          "duration_sec": 0.9507
+        },
+        {
+          "file": "Head/V05_RR02.wav",
+          "source": "V5_HIT03.wav",
+          "source_hit": 3,
+          "peak_dbfs": -6.46,
+          "rms_dbfs": -19.09,
+          "duration_sec": 0.9827
+        },
+        {
+          "file": "Head/V05_RR03.wav",
+          "source": "V5_HIT05.wav",
+          "source_hit": 5,
+          "peak_dbfs": -6.74,
+          "rms_dbfs": -19.92,
+          "duration_sec": 0.9613
+        },
+        {
+          "file": "Head/V05_RR04.wav",
+          "source": "V5_HIT02.wav",
+          "source_hit": 2,
+          "peak_dbfs": -6.58,
+          "rms_dbfs": -19.15,
+          "duration_sec": 1.0147
+        },
+        {
+          "file": "Head/V05_RR05.wav",
+          "source": "V5_HIT04.wav",
+          "source_hit": 4,
+          "peak_dbfs": -6.54,
+          "rms_dbfs": -18.8,
+          "duration_sec": 0.9827
+        }
+      ],
+      "V6": [
+        {
+          "file": "Head/V06_RR01.wav",
+          "source": "V6_HIT01.wav",
+          "source_hit": 1,
+          "peak_dbfs": -6.08,
+          "rms_dbfs": -17.96,
+          "duration_sec": 0.9933
+        },
+        {
+          "file": "Head/V06_RR02.wav",
+          "source": "V6_HIT03.wav",
+          "source_hit": 3,
+          "peak_dbfs": -6.0,
+          "rms_dbfs": -17.83,
+          "duration_sec": 0.9827
+        },
+        {
+          "file": "Head/V06_RR03.wav",
+          "source": "V6_HIT04.wav",
+          "source_hit": 4,
+          "peak_dbfs": -6.07,
+          "rms_dbfs": -17.14,
+          "duration_sec": 0.9827
+        },
+        {
+          "file": "Head/V06_RR04.wav",
+          "source": "V6_HIT06.wav",
+          "source_hit": 6,
+          "peak_dbfs": -6.19,
+          "rms_dbfs": -17.53,
+          "duration_sec": 0.9827
+        },
+        {
+          "file": "Head/V06_RR05.wav",
+          "source": "V6_HIT05.wav",
+          "source_hit": 5,
+          "peak_dbfs": -6.1,
+          "rms_dbfs": -18.13,
+          "duration_sec": 0.9613
+        }
+      ],
+      "V7": [
+        {
+          "file": "Head/V07_RR01.wav",
+          "source": "V7_HIT04.wav",
+          "source_hit": 4,
+          "peak_dbfs": -6.01,
+          "rms_dbfs": -16.15,
+          "duration_sec": 0.9933
+        },
+        {
+          "file": "Head/V07_RR02.wav",
+          "source": "V7_HIT03.wav",
+          "source_hit": 3,
+          "peak_dbfs": -6.16,
+          "rms_dbfs": -17.66,
+          "duration_sec": 0.9933
+        },
+        {
+          "file": "Head/V07_RR03.wav",
+          "source": "V7_HIT02.wav",
+          "source_hit": 2,
+          "peak_dbfs": -6.19,
+          "rms_dbfs": -17.91,
+          "duration_sec": 0.972
+        },
+        {
+          "file": "Head/V07_RR04.wav",
+          "source": "V7_HIT01.wav",
+          "source_hit": 1,
+          "peak_dbfs": -6.0,
+          "rms_dbfs": -16.23,
+          "duration_sec": 0.9613
+        },
+        {
+          "file": "Head/V07_RR05.wav",
+          "source": "V7_HIT05.wav",
+          "source_hit": 5,
+          "peak_dbfs": -6.06,
+          "rms_dbfs": -15.35,
+          "duration_sec": 0.9507
+        }
+      ],
+      "V8": [
+        {
+          "file": "Head/V08_RR01.wav",
+          "source": "V8_HIT06.wav",
+          "source_hit": 6,
+          "peak_dbfs": -6.03,
+          "rms_dbfs": -15.31,
+          "duration_sec": 0.9933
+        },
+        {
+          "file": "Head/V08_RR02.wav",
+          "source": "V8_HIT05.wav",
+          "source_hit": 5,
+          "peak_dbfs": -6.14,
+          "rms_dbfs": -15.23,
+          "duration_sec": 0.9827
+        },
+        {
+          "file": "Head/V08_RR03.wav",
+          "source": "V8_HIT01.wav",
+          "source_hit": 1,
+          "peak_dbfs": -6.08,
+          "rms_dbfs": -14.76,
+          "duration_sec": 0.9507
+        },
+        {
+          "file": "Head/V08_RR04.wav",
+          "source": "V8_HIT03.wav",
+          "source_hit": 3,
+          "peak_dbfs": -6.03,
+          "rms_dbfs": -15.31,
+          "duration_sec": 1.004
+        },
+        {
+          "file": "Head/V08_RR05.wav",
+          "source": "V8_HIT02.wav",
+          "source_hit": 2,
+          "peak_dbfs": -6.03,
+          "rms_dbfs": -14.96,
+          "duration_sec": 0.9827
+        }
+      ],
+      "V9": [
+        {
+          "file": "Head/V09_RR01.wav",
+          "source": "V9_HIT04.wav",
+          "source_hit": 4,
+          "peak_dbfs": -6.12,
+          "rms_dbfs": -13.7,
+          "duration_sec": 0.9933
+        },
+        {
+          "file": "Head/V09_RR02.wav",
+          "source": "V9_HIT05.wav",
+          "source_hit": 5,
+          "peak_dbfs": -6.05,
+          "rms_dbfs": -13.82,
+          "duration_sec": 0.9827
+        },
+        {
+          "file": "Head/V09_RR03.wav",
+          "source": "V9_HIT03.wav",
+          "source_hit": 3,
+          "peak_dbfs": -6.04,
+          "rms_dbfs": -13.9,
+          "duration_sec": 0.9613
+        },
+        {
+          "file": "Head/V09_RR04.wav",
+          "source": "V9_HIT01.wav",
+          "source_hit": 1,
+          "peak_dbfs": -6.01,
+          "rms_dbfs": -14.02,
+          "duration_sec": 0.9827
+        },
+        {
+          "file": "Head/V09_RR05.wav",
+          "source": "V9_HIT06.wav",
+          "source_hit": 6,
+          "peak_dbfs": -6.07,
+          "rms_dbfs": -13.65,
+          "duration_sec": 0.9827
+        }
+      ]
+    }
+  },
+  "edge": {
+    "round_robin": 5,
+    "samples": [
+      {
+        "file": "Edge/RR01.wav",
+        "source": "EdgeV2_HIT03.wav",
+        "source_hit": 3,
+        "source_take": "EdgeV2",
+        "peak_dbfs": -6.17,
+        "rms_dbfs": -28.11,
+        "duration_sec": 0.9827
+      },
+      {
+        "file": "Edge/RR02.wav",
+        "source": "EdgeV1_HIT04.wav",
+        "source_hit": 4,
+        "source_take": "EdgeV1",
+        "peak_dbfs": -6.7,
+        "rms_dbfs": -31.43,
+        "duration_sec": 0.9933
+      },
+      {
+        "file": "Edge/RR03.wav",
+        "source": "EdgeV1_HIT05.wav",
+        "source_hit": 5,
+        "source_take": "EdgeV1",
+        "peak_dbfs": -7.97,
+        "rms_dbfs": -30.72,
+        "duration_sec": 0.972
+      },
+      {
+        "file": "Edge/RR04.wav",
+        "source": "EdgeV3_HIT02.wav",
+        "source_hit": 2,
+        "source_take": "EdgeV3",
+        "peak_dbfs": -6.38,
+        "rms_dbfs": -27.8,
+        "duration_sec": 0.9933
+      },
+      {
+        "file": "Edge/RR05.wav",
+        "source": "EdgeV3_HIT04.wav",
+        "source_hit": 4,
+        "source_take": "EdgeV3",
+        "peak_dbfs": -6.45,
+        "rms_dbfs": -26.84,
+        "duration_sec": 0.972
+      }
+    ]
+  }
+}
