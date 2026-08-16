@@ -21,6 +21,13 @@ if(NOT DEFINED DOL_JUCE_ROOT)
 endif()
 add_subdirectory("${DOL_JUCE_ROOT}" JUCE)
 
+# foleys_gui_magic defaults to building its examples/tests, which would make
+# it FetchContent a SECOND copy of JUCE (duplicate targets -> CMake error).
+# Disable them so only our JUCE (DOL_JUCE_ROOT) is used.
+set(FOLEYS_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+set(FOLEYS_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(FOLEYS_RUN_PLUGINVAL OFF CACHE BOOL "" FORCE)
+
 add_subdirectory(
     "${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/foleys_gui_magic"
     foleys_gui_magic
