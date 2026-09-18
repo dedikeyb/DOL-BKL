@@ -34,13 +34,13 @@ fi
 
 echo "==> Staging DMG contents..."
 STAGE="$(mktemp -d)"
-mkdir -p "$STAGE/DOL BENGKULU PROTOTYPE"
-cp -R "$ARTEFACT_DIR/$VST3_NAME" "$STAGE/DOL BENGKULU PROTOTYPE/"
+mkdir -p "$STAGE/DOL BENGKULU"
+cp -R "$ARTEFACT_DIR/$VST3_NAME" "$STAGE/DOL BENGKULU/"
 
 cat > "$STAGE/INSTALL.txt" <<'EOF'
 CARA INSTAL (macOS)
 ====================
-1. Buka folder "DOL BENGKULU PROTOTYPE".
+1. Buka folder "DOL BENGKULU".
 2. Salin "DOL BENGKULU.vst3" ke:
      ~/Library/Audio/Plug-Ins/VST3/
    (buat folder VST3 jika belum ada)
@@ -56,7 +56,7 @@ rm -f "$DMG_PATH"
 
 echo "==> Creating DMG..."
 hdiutil create \
-    -volname "DOL BENGKULU PROTOTYPE $VERSION" \
+    -volname "DOL BENGKULU $VERSION" \
     -srcfolder "$STAGE" \
     -ov \
     -format UDZO \
