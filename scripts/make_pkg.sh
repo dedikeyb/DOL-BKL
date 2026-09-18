@@ -7,7 +7,7 @@
 #   ./scripts/make_pkg.sh
 #
 # Output:
-#   dist/DOL_BKL-<version>-macos.pkg
+#   dist/macOS/DOL_BKL-<version>-macos.pkg
 #
 # Notes:
 # - Installing asks for the admin password once (normal for system installers).
@@ -22,7 +22,7 @@ VST3_NAME="DOL BENGKULU.vst3"
 VERSION="0.1.0"
 BUILD_DIR="Builds/DOL_BKL"
 ARTEFACT_DIR="$BUILD_DIR/DOL_BKL_artefacts/VST3"
-DIST_DIR="dist"
+DIST_DIR="dist/macOS"
 JOBS="$(sysctl -n hw.ncpu 2>/dev/null || echo 4)"
 
 echo "==> Building VST3 (Release)..."

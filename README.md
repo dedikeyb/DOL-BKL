@@ -50,7 +50,7 @@ scripts\build_windows.ps1 -JUCE C:\path\to\JUCE
 
 Folder portabel siap-copy (semua source + script + instruksi, tinggal
 jalankan `build_windows.bat` di Windows) tersedia di:
-`dist/DOL_BKL_Windows_Build/` (+ `dist/DOL_BKL_Windows_Build.zip`).
+`dist/Windows_Build_Kit/` (+ `dist/Windows_Build_Kit.zip`).
 
 Hasil `.vst3` adalah folder portabel — untuk distribusi ke user lain cukup
 copy folder `DOL BENGKULU.vst3` ke `C:\Program Files\Common Files\VST3\`
@@ -90,7 +90,7 @@ sebagai fallback.
 ./scripts/make_dmg.sh
 ```
 
-Menghasilkan `dist/DOL_BKL-0.1.0-macos.dmg` berisi `.vst3` + petunjuk
+Menghasilkan `dist/macOS/DOL_BKL-0.1.0-macos.dmg` berisi `.vst3` + petunjuk
 instalasi (salin ke `~/Library/Audio/Plug-Ins/VST3/`).
 
 ### Windows — EXE (Inno Setup)
