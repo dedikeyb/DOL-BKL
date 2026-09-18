@@ -36,6 +36,8 @@ echo "==> Staging DMG contents..."
 STAGE="$(mktemp -d)"
 mkdir -p "$STAGE/DOL BENGKULU"
 cp -R "$ARTEFACT_DIR/$VST3_NAME" "$STAGE/DOL BENGKULU/"
+# Pastikan semua file bisa dibaca siapa pun (drive exFAT bisa menghasilkan izin 700).
+chmod -R a+rX,u+rw "$STAGE/DOL BENGKULU"
 
 cat > "$STAGE/INSTALL.txt" <<'EOF'
 CARA INSTAL (macOS)

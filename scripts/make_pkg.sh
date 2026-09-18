@@ -37,6 +37,9 @@ echo "==> Staging payload..."
 STAGE="$(mktemp -d)"
 mkdir -p "$STAGE/payload/Library/Audio/Plug-Ins/VST3"
 cp -R "$ARTEFACT_DIR/$VST3_NAME" "$STAGE/payload/Library/Audio/Plug-Ins/VST3/"
+# Pastikan semua file/folder bisa dibaca siapa pun (DAW berjalan sebagai user;
+# drive exFAT bisa menghasilkan izin 700 yang membuat plugin tak termuat).
+chmod -R a+rX,u+rw "$STAGE/payload"
 
 echo "==> Building pkg..."
 pkgbuild \
