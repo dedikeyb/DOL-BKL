@@ -1,19 +1,52 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
+#if JUCE_MAC
+ #include <dlfcn.h>
+#elif JUCE_WINDOWS
+ #include <windows.h>
+#endif
+
 namespace
 {
+    // Path of THIS plugin's own binary (the .vst3 bundle executable).
+    // JUCE's hostApplicationPath/currentExecutableFile return the DAW's
+    // executable; bundle resolution must start from the plugin binary so
+    // the bundled samples are found no matter where the DAW is installed.
+    juce::File getThisModuleFile()
+    {
+       #if JUCE_MAC
+        Dl_info info{};
+        if (dladdr((void*) &getThisModuleFile, &info) != 0
+              && info.dli_fname != nullptr)
+            return juce::File(juce::String::fromUTF8(info.dli_fname));
+       #elif JUCE_WINDOWS
+        HMODULE mod = nullptr;
+        if (GetModuleHandleExW(
+                GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS
+                    | GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
+                reinterpret_cast<LPCWSTR>(&getThisModuleFile),
+                &mod) && mod != nullptr)
+        {
+            wchar_t path[MAX_PATH];
+            if (GetModuleFileNameW(mod, path, MAX_PATH) > 0)
+                return juce::File(juce::String(path));
+        }
+       #endif
+
+        return {};
+    }
+
     // Samples ship inside the VST3 bundle at:
     //   <bundle>.vst3/Contents/Resources/Samples
-    // Resolve the bundle folder relative to the plugin binary so the
-    // plugin works on any machine (macOS & Windows) after installation.
+    // Walk up from the plugin binary to the .vst3 bundle, then look for
+    // the bundled samples.
     juce::File getBundledSamplesFolder()
     {
-        auto dir = juce::File::getSpecialLocation(
-            juce::File::hostApplicationPath
-        ).getParentDirectory();
+        auto dir = getThisModuleFile();
+        if (dir.existsAsFile())
+            dir = dir.getParentDirectory();
 
-        // Walk up to the .vst3 bundle, then look for the bundled samples.
         for (int i = 0; i < 8 && dir != dir.getParentDirectory(); ++i)
         {
             if (dir.getFileName().endsWithIgnoreCase(".vst3"))
