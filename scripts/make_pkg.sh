@@ -21,7 +21,11 @@ cd "$ROOT"
 VST3_NAME="DOL BENGKULU.vst3"
 VERSION="0.1.0"
 BUILD_DIR="Builds/DOL_BKL"
-ARTEFACT_DIR="$BUILD_DIR/DOL_BKL_artefacts/VST3"
+# Lokasi artefak: dengan CMAKE_BUILD_TYPE=Release masuk subfolder Release/.
+ARTEFACT_DIR="$BUILD_DIR/DOL_BKL_artefacts/Release/VST3"
+if [ ! -d "$ARTEFACT_DIR/$VST3_NAME" ]; then
+    ARTEFACT_DIR="$BUILD_DIR/DOL_BKL_artefacts/VST3"
+fi
 DIST_DIR="dist/macOS"
 JOBS="$(sysctl -n hw.ncpu 2>/dev/null || echo 4)"
 
@@ -35,6 +39,9 @@ fi
 
 echo "==> Staging payload..."
 STAGE="$(mktemp -d)"
+# Hapus sidecar AppleDouble (._) yang dihasilkan drive exFAT: file "._x.wav"
+# ikut terhitung sebagai wav dan bisa mengacaukan pemuatan sampel di mesin lain.
+find "$ARTEFACT_DIR/$VST3_NAME" -name "._*" -delete
 mkdir -p "$STAGE/payload/Library/Audio/Plug-Ins/VST3"
 cp -R "$ARTEFACT_DIR/$VST3_NAME" "$STAGE/payload/Library/Audio/Plug-Ins/VST3/"
 # Pastikan semua file/folder bisa dibaca siapa pun (DAW berjalan sebagai user;

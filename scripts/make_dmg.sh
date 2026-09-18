@@ -19,7 +19,11 @@ cd "$ROOT"
 VST3_NAME="DOL BENGKULU.vst3"
 VERSION="0.1.0"
 BUILD_DIR="Builds/DOL_BKL"
-ARTEFACT_DIR="$BUILD_DIR/DOL_BKL_artefacts/VST3"
+# Lokasi artefak: dengan CMAKE_BUILD_TYPE=Release masuk subfolder Release/.
+ARTEFACT_DIR="$BUILD_DIR/DOL_BKL_artefacts/Release/VST3"
+if [ ! -d "$ARTEFACT_DIR/$VST3_NAME" ]; then
+    ARTEFACT_DIR="$BUILD_DIR/DOL_BKL_artefacts/VST3"
+fi
 DIST_DIR="dist/macOS"
 
 JOBS="$(sysctl -n hw.ncpu 2>/dev/null || echo 4)"
@@ -34,6 +38,8 @@ fi
 
 echo "==> Staging DMG contents..."
 STAGE="$(mktemp -d)"
+# Hapus sidecar AppleDouble (._) dari drive exFAT (bisa mengacaukan pemuatan sampel).
+find "$ARTEFACT_DIR/$VST3_NAME" -name "._*" -delete
 mkdir -p "$STAGE/DOL BENGKULU"
 cp -R "$ARTEFACT_DIR/$VST3_NAME" "$STAGE/DOL BENGKULU/"
 # Pastikan semua file bisa dibaca siapa pun (drive exFAT bisa menghasilkan izin 700).

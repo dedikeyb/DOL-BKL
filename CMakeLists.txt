@@ -4,6 +4,13 @@ project(DOL_BKL VERSION 0.1.0)
 
 set(CMAKE_CXX_STANDARD 17)
 
+# macOS: build a Universal Binary (Apple Silicon + Intel) so the plugin
+# loads and makes sound in ANY Mac DAW, including DAWs running under
+# Rosetta 2 (an arm64-only plugin is silent inside Intel-mode DAWs).
+if(APPLE)
+    set(CMAKE_OSX_ARCHITECTURES "arm64;x86_64" CACHE STRING "macOS architectures" FORCE)
+endif()
+
 # Copy the built plugin to the DAW plugin folder after build.
 # ON for local dev (macOS). Turn OFF when packaging on Windows so the
 # build doesn't need an elevated shell (the installer handles installation):
